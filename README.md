@@ -1,8 +1,35 @@
-# Flutter Feature Generator 🚀
+# Flutter MVVM Automation Tools 🛠️
+
+This repository contains a set of shell scripts to automate the setup and feature creation for Flutter projects using the MVVM architecture (Provider + GetIt + GoRouter).
+
+## 📋 Prerequisites
+
+* **Flutter SDK** installed.
+* **FVM** (Flutter Version Management) installed (`dart pub global activate fvm`).
+* **Bash** terminal (macOS, Linux, or WSL on Windows).
+
+---
+
+## 🚀 1. Project Initialization (`mvvm_init.sh`)
+
+This script sets up FVM, installs dependencies, and creates the core boilerplate files (`main.dart`, `router.dart`, `service_locator.dart`) with the necessary **markers** for automation.
+### 🛠️ Installation
+
+1.  Download the `mvvm_init.sh` script and `create_feature.sh` script and place it in the **root** of your Flutter project.
+2.  Open your terminal in the project root and make the script executable:
+
+### 💻 Usage
+Run the script from the root of your project
+```bash
+chmod +x mvvm_init.sh
+./mvvm_init.sh
+```
+
+## Flutter Feature Generator 🚀
 
 A robust, cross-platform shell script to automate the creation of MVVM features in Flutter. It generates boilerplate code for Screens and ViewModels and automatically handles dependency injection in `GetIt` and `Provider`.
 
-## ✨ Features
+### ✨ Features
 
 * **⚡ Automated Creation**: Generates a feature folder with `Screen` and `ViewModel` files.
 * **🏗️ Architecture Standard**: Follows the MVVM pattern.
@@ -13,65 +40,17 @@ A robust, cross-platform shell script to automate the creation of MVVM features 
 
 ---
 
-## 🛠️ Installation
+### 🛠️ Installation
 
 1.  Download the `create_feature.sh` script and place it in the **root** of your Flutter project.
 2.  Open your terminal in the project root and make the script executable:
 
 ```bash
 chmod +x create_feature.sh
-
-### 2. Add Markers (One-Time Setup)
-
-You must add specific comments to your files so the script knows where to insert code.
-
-**In `lib/service_locator.dart`:**
-
-```dart
-import 'package:get_it/get_it.dart';
-// ... other imports
-// --- VIEWMODEL IMPORTS ---
-
-final locator = GetIt.instance;
-
-void setupLocator() {
-  // ... other registrations
-  
-  // --- VIEWMODEL REGISTRATION ---
-}
 ```
-
-**In `lib/main.dart`:**
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-// ... other imports
-// --- PROVIDER IMPORTS ---
-
-void main() {
-  setupLocator();
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        // ... other providers
-        
-        // --- PROVIDERS LIST ---
-      ],
-      child: const MaterialApp(home: HomeScreen()),
-    );
-  }
-}
-```
-
 ---
 
-## 💻 Usage
+### 💻 Usage
 
 Run the script from the root of your project:
 
